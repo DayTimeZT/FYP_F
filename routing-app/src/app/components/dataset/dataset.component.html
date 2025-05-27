@@ -1,0 +1,39 @@
+<div>    
+    <app-toolbar currentPageTitle="Datasets" previousLink="" nextLink="/preprocessing"></app-toolbar>
+</div>
+
+<mat-grid-list cols="3" rowHeight="70px">
+    <mat-grid-tile colspan="1"> 
+    </mat-grid-tile>
+    <mat-grid-tile colspan="1" style="display: flex; justify-content: center; align-items: center;"> 
+        <input hidden type="file" class="file-input" accept=".csv" (change)="onFileSelected($event)" #fileUpload>
+        <div class="file-upload">
+            {{datasetName}}
+            <button mat-raised-button color="accent" (click)="fileUpload.click()">Upload dataset</button>
+        </div>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="1"> 
+    </mat-grid-tile>
+</mat-grid-list>
+
+<div style="display: flex; justify-content: center; height: 100%; width: 100%;">
+    <div style="height: 80%; width: 80%;">
+        <ag-grid-angular
+        style="width: 100%; height: 100%; align-content: center; text-align: center;" 
+        class="ag-theme-alpine"
+        [columnDefs]="columnDefs"
+        [defaultColDef]="defaultColDef"
+        [rowData]="rowData$ | async"
+        [rowSelection]="'single'"
+        [animateRows]="true"
+        [enableCellTextSelection]="true"
+        [ensureDomOrder]="true"
+        (gridReady)="onGridReady($event)"
+        (firstDataRendered)="onFirstDataRendered($event)"
+        (cellClicked)="onCellClicked($event)"
+        [gridOptions]="gridOptions"
+        ></ag-grid-angular>
+    </div>
+</div>
+
+

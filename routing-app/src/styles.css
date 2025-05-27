@@ -1,0 +1,32 @@
+/* You can add global styles to this file, and also import other style files */
+
+
+/* angular material */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+/* ag-grid */
+@import 'ag-grid-community/styles/ag-grid.css';
+@import 'ag-grid-community/styles/ag-theme-alpine.css';
+@import 'ag-grid-community/styles/ag-theme-material.css';
+@import 'ngx-toastr/toastr';
+
+.ag-theme-material {
+   --ag-borders: dashed;
+   --ag-row-border-style: dashed;
+   --ag-row-border-width: 5px;
+   --ag-row-border-color: rgb(150, 150, 200);
+}
+
+html, body {
+   height: 100%;
+   width: 100%;
+   padding: 5px;
+   box-sizing: border-box;
+   -webkit-overflow-scrolling: touch;
+}
+
+/* ArcGIS */
+@import "https://js.arcgis.com/4.27/@arcgis/core/assets/esri/themes/light/main.css";
